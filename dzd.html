@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        
+    </head>
+    <body>
+        <h1>Gaidot dzimšanas dienu..</h1>
+        <hr> 
+        <form>
+            
+            <p>Ievadi pilnu datumu, kad Tev būs tuvākā dzimšanas diena</p>
+            gads:
+<input type="text" name="gads">
+mēnesis:
+<input type="text" name="menesis">
+diena:
+<input type="text" name="datums"> 
+
+<input type="button" name="poga"
+value="Aprēķināt dienu skaitu līdz dzimšanas dienai">
+Līdz svētkiem atlikušas
+<input type="text" name="dienas"> 
+dienas : ))
+<input type="button" name="poga"
+value="Aprēķināt dienu skaitu līdz dzimšanas dienai"
+onclick="dienas();">
+
+
+</form>
+     <script>
+function dienas() {
+
+    let m = parseInt(document.forms[0].menesis.value);
+    let d = parseInt(document.forms[0].datums.value);
+
+    let sodien = new Date();
+
+    
+    let dzd = new Date(sodien.getFullYear(), m - 1, d);
+
+    
+    if (dzd < sodien) {
+        dzd.setFullYear(sodien.getFullYear() + 1);
+    }
+
+    let starpiba = dzd - sodien;
+
+    let dienas = Math.ceil(starpiba / (1000 * 60 * 60 * 24));
+
+    document.forms[0].dienas.value = dienas;
+}
+</script>
+    </body>
+</html>

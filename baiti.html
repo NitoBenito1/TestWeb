@@ -1,0 +1,30 @@
+
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>  
+            <p> Aprēķināt cik daudz informācijas var lejupielādēt </p> 
+            <input type="number" id="sekundes" placeholder="sekundes"> 
+            <p>sekundēs, ja interneta ātrums ir 25Mbps
+            <p> Atbilde </p> 
+            <input type="text" id="rezultats" readonly> 
+            <br> 
+            <br> 
+            <input type="radio" name="vienibas" value="kiB" oneclick="rekini()"> KiB
+            <input type="radio" name="vienibas" value="kB" oneclick="rekini()"> KB
+        </form>
+        
+        <script> 
+            function rekini() {let t document.getElementById("sekundes").value;
+                let bits= 25*100000*t
+                let bytes = bits /8;
+                let vienibas =document.querySelector('input[name="vienibas"]:checked').value;
+                
+           
+            }
+    </body>
+</html>
